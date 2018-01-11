@@ -23,7 +23,8 @@ app.use(express.static('/public'));
 
 app.use(cors());
 
-app.get('/index', (req, res) => res.sendFile('index.html', {root: '/public'}))
+// app.get('/index', (req, res) => res.send('hello world'))
+app.get('/index', (req, res) => res.sendFile('index.html', {root: '/MICHAEL-IXIUS/client/public'}))
 
 app.get('/api/vi/books', (req,res) => {
     client.query(`SELECT book_id,title,author,image_url FROM book_app`)
