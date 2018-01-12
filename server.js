@@ -1,9 +1,7 @@
 'use strict';
-
 const pg = require('pg');
 const fs = require('fs');
 const express = require('express');
-
 const cors =require('cors');
 
 const bodyParser = require('body-parser');
@@ -23,6 +21,7 @@ app.get(`/api/v1/books`,(req,res) =>{
 `).then(result => res.send(result.rows))
     .catch(err => console.error(err))
 })
+
 
 
 client.on('error', err => {
