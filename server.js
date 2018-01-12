@@ -2,6 +2,8 @@
 const pg = require('pg');
 const fs = require('fs');
 const express = require('express');
+require('dotenv').config()
+
 const cors =require('cors');
 
 const bodyParser = require('body-parser');
