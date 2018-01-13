@@ -10,11 +10,12 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 
-const DATABASE_URL = process.env.DATABASE_URL || 'postgres://postgres:1234@localhost:5432/books_app';
+const DATABASE_URL = process.env.DATABASE_URL;
 const client = new pg.Client(DATABASE_URL);
 
-client.on('error', console.error)
+
 client.connect();
+client.on('error', console.error)
 
 app.use(cors());
 app.get(`/api/v1/books`,(req,res) =>{
