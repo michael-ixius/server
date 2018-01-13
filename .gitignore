@@ -58,4 +58,9 @@ typings/
 # Yarn Integrity file
 .yarn-integrity
 
-# .env
+# 
+.env
+# 
+mydb.dump
+# 
+Procfile

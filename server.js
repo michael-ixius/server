@@ -2,17 +2,18 @@
 const pg = require('pg');
 const fs = require('fs');
 const express = require('express');
+const cors =require('cors');
 require('dotenv').config()
 
-const cors =require('cors');
 
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 const app = express();
 
 
-const DATABASE_URL = 'postgres://qrjppdndchkjrx:5c174db10d055a79a15ea0297433997e4453dc444c3ec8776988493ab718de5e@ec2-54-225-255-132.compute-1.amazonaws.com:5432/d5rfddp4ou0g8' || 'postgres://postgres:1234@localhost:5432/books_app';
+const DATABASE_URL = process.env.DATABASE_URL || 'postgres://postgres:1234@localhost:5432/books_app';
 const client = new pg.Client(DATABASE_URL);
+client.on('error', console.error)
 client.connect();
 
 app.use(cors());
