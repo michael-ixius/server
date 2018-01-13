@@ -14,6 +14,15 @@ const client = new pg.Client(DATABASE_URL);
 client.connect();
 
 app.use(cors());
+
+app.get(`/api/v1/books`,(req,res) =>{
+  
+    client.query(`
+    SELECT * FROM books
+  `).then(result => console.log(result.rows))
+      .catch(err => console.error(err))
+  })
+
 app.get(`/api/v1/books`,(req,res) =>{
 
   client.query(`
@@ -27,7 +36,7 @@ client.on('error', err => {
   console.error(err);
 });
 
-app.use(express.static('/public'));
+
 
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}!`));
