@@ -15,13 +15,7 @@ client.connect();
 
 app.use(cors());
 
-app.get(`/api/v1/books`,(req,res) =>{
-  
-    client.query(`
-    SELECT * FROM books
-  `).then(result => console.log(result.rows))
-      .catch(err => console.error(err))
-  })
+
 
 app.get(`/api/v1/books`,(req,res) =>{
 
