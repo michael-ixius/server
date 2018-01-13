@@ -3,6 +3,8 @@ const pg = require('pg');
 const fs = require('fs');
 const express = require('express');
 const cors =require('cors');
+require('dotenv').config()
+
 
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
@@ -11,6 +13,7 @@ const app = express();
 
 const DATABASE_URL = process.env.DATABASE_URL || 'postgres://postgres:1234@localhost:5432/books_app';
 const client = new pg.Client(DATABASE_URL);
+client.on('error', console.error)
 client.connect();
 
 app.use(cors());
